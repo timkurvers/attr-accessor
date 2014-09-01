@@ -1,0 +1,34 @@
+{
+  "name": "attr-accessor",
+  "version": "0.0.0",
+  "description": "Convenience factories for creating getter/setters",
+  "main": "lib/attr.js",
+  "scripts": {
+    "test": "mocha spec --compilers coffee:coffee-script/register"
+  },
+  "repository": "timkurvers/attr-accessor",
+  "author": {
+    "name": "Tim Kurvers",
+    "email": "tim@moonsphere.net",
+    "url": "http://moonsphere.net"
+  },
+  "license": "MIT",
+  "keywords": [
+    "attr", "accessor", "reader", "writer", "getter", "setter"
+  ],
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "coffee-script": "^1.7.1",
+    "gulp": "git://github.com/gulpjs/gulp.git#4.0",
+    "gulp-browserify": "^0.5.0",
+    "gulp-coffee": "^2.1.2",
+    "gulp-mocha": "^1.0.0",
+    "gulp-plumber": "^0.6.5",
+    "gulp-rename": "^1.2.0",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-uglify": "^1.0.0",
+    "mocha": "^1.21.4",
+    "sinon": "^1.10.3",
+    "sinon-chai": "^2.5.0"
+  }
+}
