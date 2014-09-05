@@ -16,10 +16,10 @@ gulp.task 'build', ->
   gulp.src('src/**/*.coffee')
       .pipe(plumber())
       .pipe(coffee(bare: true))
-      .pipe(gulp.dest('lib'))
+      .pipe(gulp.dest('.'))
 
 gulp.task 'spec', ->
-  gulp.src('spec/**/*.coffee', read: false)
+  gulp.src('spec/**/*.js', read: false)
       .pipe(plumber())
       .pipe(mocha())
 
@@ -36,8 +36,7 @@ gulp.task 'flow', gulp.series('build', 'spec')
 
 gulp.task 'watch', ->
   gulp.watch [
-    'src/**/*.coffee',
-    'spec/**/*.coffee'
+    'src/**/*.coffee'
   ], 'flow'
 
 gulp.task 'default', gulp.series('flow', 'watch')

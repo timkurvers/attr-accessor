@@ -4,7 +4,7 @@
   "description": "Convenience factories for creating getter/setters",
   "main": "lib/attr.js",
   "scripts": {
-    "test": "mocha spec --compilers coffee:coffee-script/register"
+    "test": "mocha spec"
   },
   "repository": "timkurvers/attr-accessor",
   "author": {
