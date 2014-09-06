@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Convenience factories for creating getter/setters",
   "main": "lib/attr.js",
+  "files": [
+    "dist", "lib", "LICENSE.md"
+  ],
   "scripts": {
     "test": "mocha spec"
   },
