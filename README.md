@@ -12,7 +12,32 @@ Licensed under the **MIT** license, see LICENSE for more information.
 
 ## Usage
 
-Soon™
+Pass in an object to `attr.reader` or `attr.writer` to obtain a factory.
+Use the plural methods `attr.readers` or `attr.writers` to obtain multiple.
+
+CoffeeScript has had no elegant way of defining getter/setters, until now.
+Use its destructuring syntax to conveniently obtain prototype and static factories.
+
+```coffeescript
+class Person
+  [get, @get] = attr.readers(@::, @)
+
+  group = []
+
+  constructor: (@firstName, @lastName) ->
+    group.push @
+
+  get name: ->
+    "#{@firstName} #{@lastName}"
+
+  @get count: ->
+    group.length
+```
+
+```coffeescript
+new Person('John', 'Doe').name # John Doe
+Person.count # 1
+```
 
 
 ## Browser Support
