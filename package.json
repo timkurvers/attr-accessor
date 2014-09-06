@@ -39,7 +39,7 @@
       "firefox/16..latest",
       "ie/9..latest",
       "opera/11.0..latest",
-      "safari/5..latest"
+      "safari/5.0.5..latest"
     ]
   }
 }
