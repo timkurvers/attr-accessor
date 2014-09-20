@@ -4,7 +4,9 @@
   "description": "Convenience factories for creating getter/setters",
   "main": "lib/attr.js",
   "files": [
-    "dist", "lib", "LICENSE.md"
+    "dist",
+    "lib",
+    "LICENSE.md"
   ],
   "scripts": {
     "test": "mocha spec"
@@ -13,7 +15,12 @@
   "author": "Tim Kurvers <tim@moonsphere.net>",
   "license": "MIT",
   "keywords": [
-    "attr", "accessor", "reader", "writer", "getter", "setter"
+    "attr",
+    "accessor",
+    "reader",
+    "writer",
+    "getter",
+    "setter"
   ],
   "dependencies": {
     "clone": "^0.1.18"
