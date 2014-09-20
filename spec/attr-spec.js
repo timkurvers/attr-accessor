@@ -25,6 +25,7 @@ describe('attr', function() {
       });
       return expect(spy).to.have.been.calledWith(dummy, 'options', {
         get: reader,
+        configurable: true,
         enumerable: true
       });
     });
@@ -54,6 +55,7 @@ describe('attr', function() {
       });
       return expect(spy).to.have.been.calledWith(dummy, 'options', {
         set: reader,
+        configurable: true,
         enumerable: true
       });
     });

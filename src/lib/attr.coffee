@@ -8,6 +8,7 @@ module.exports = {
 
   reader: (object, options = {}) ->
     options = clone(options)
+    options.configurable ?= true
     (properties) ->
       for name, getter of properties
         options.get = getter
@@ -16,6 +17,7 @@ module.exports = {
 
   writer: (object, options = {}) ->
     options = clone(options)
+    options.configurable ?= true
     (properties) ->
       for name, setter of properties
         options.set = setter

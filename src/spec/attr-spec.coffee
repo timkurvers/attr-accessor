@@ -14,7 +14,7 @@ describe 'attr', ->
       spy = @sandbox.spy(Object, 'defineProperty')
       get options: reader = ->
       expect(spy).to.have.been.calledWith(
-        dummy, 'options', get: reader, enumerable: true
+        dummy, 'options', get: reader, configurable: true, enumerable: true
       )
 
   describe '.writer', ->
@@ -32,7 +32,7 @@ describe 'attr', ->
       spy = @sandbox.spy(Object, 'defineProperty')
       set options: reader = ->
       expect(spy).to.have.been.calledWith(
-        dummy, 'options', set: reader, enumerable: true
+        dummy, 'options', set: reader, configurable: true, enumerable: true
       )
 
   describe '.accessor', ->
