@@ -1,6 +1,9 @@
+clone = require('clone')
+
 module.exports = {
 
   reader: (object, options = {}) ->
+    options = clone(options)
     (properties) ->
       for name, getter of properties
         options.get = getter
@@ -8,6 +11,7 @@ module.exports = {
       undefined
 
   writer: (object, options = {}) ->
+    options = clone(options)
     (properties) ->
       for name, setter of properties
         options.set = setter
