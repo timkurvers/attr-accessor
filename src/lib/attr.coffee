@@ -3,7 +3,7 @@ module.exports = {
   reader: (object) ->
     (properties) ->
       for name, getter of properties
-        Object.defineProperty(object, name, get: getter, enumerable: false)
+        Object.defineProperty(object, name, get: getter, enumerable: true)
       undefined
 
   writer: (object) ->

@@ -9,7 +9,7 @@ module.exports = {
         getter = properties[name];
         Object.defineProperty(object, name, {
           get: getter,
-          enumerable: false
+          enumerable: true
         });
       }
       return void 0;
