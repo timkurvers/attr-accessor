@@ -1,6 +1,6 @@
 {
   "name": "attr-accessor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Convenience factories for creating getter/setters",
   "main": "lib/attr.js",
   "files": [
