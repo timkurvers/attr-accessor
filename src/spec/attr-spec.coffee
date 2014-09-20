@@ -35,12 +35,23 @@ describe 'attr', ->
         dummy, 'options', set: reader, enumerable: true
       )
 
-  describe '.readers', ->
-    it 'returns reader factories for given objects', ->
-      sinon.stub(attr, 'reader').returnsArg(0)
-      expect(attr.readers(1, 2)).to.eql [1, 2]
+  describe '.accessor', ->
+    class Dummy
 
-  describe '.writers', ->
-    it 'returns write factories for given objects', ->
-      sinon.stub(attr, 'writer').returnsArg(0)
-      expect(attr.writers(1, 2)).to.eql [1, 2]
+    it 'exposes an enumerable prototype getter and setter', ->
+      @sandbox.stub(attr, 'reader').withArgs(
+        Dummy::, enumerable: true
+      ).returns 0
+      @sandbox.stub(attr, 'writer').withArgs(
+        Dummy::, enumerable: true
+      ).returns 1
+      [get, set] = attr.accessor(Dummy)
+      expect(get).to.equal 0
+      expect(set).to.equal 1
+
+    it 'exposes a static getter and setter', ->
+      @sandbox.stub(attr, 'reader').withArgs(Dummy).returns 0
+      @sandbox.stub(attr, 'writer').withArgs(Dummy).returns 1
+      [_, _, @get, @set] = attr.accessor(Dummy)
+      expect(@get).to.equal 0
+      expect(@set).to.equal 1

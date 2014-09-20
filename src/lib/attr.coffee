@@ -18,10 +18,14 @@ module.exports = {
         Object.defineProperty(object, name, options)
       undefined
 
-  readers: (objects...) ->
-    @reader(object) for object in objects
-
-  writers: (objects...) ->
-    @writer(object) for object in objects
+  accessor: (object, options = {}) ->
+    ioptions = clone(options)
+    ioptions.enumerable ||= true
+    [
+      @reader(object::, ioptions),
+      @writer(object::, ioptions),
+      @reader(object,   options),
+      @writer(object,   options)
+    ]
 
 }
