@@ -10,11 +10,7 @@
     "test": "mocha spec"
   },
   "repository": "timkurvers/attr-accessor",
-  "author": {
-    "name": "Tim Kurvers",
-    "email": "tim@moonsphere.net",
-    "url": "http://moonsphere.net"
-  },
+  "author": "Tim Kurvers <tim@moonsphere.net>",
   "license": "MIT",
   "keywords": [
     "attr", "accessor", "reader", "writer", "getter", "setter"
