@@ -4,21 +4,22 @@ describe 'attr', ->
 
   describe '.reader', ->
     dummy = {}
-    get = attr.reader(dummy)
-
-    it 'returns a reader factory for given object', ->
-      expect(get).to.be.callable
+    get = attr.reader(dummy, enumerable: true)
 
     it 'creates a getter through factory', ->
       get name: -> 'Tim Kurvers'
       expect(dummy.name).to.equal 'Tim Kurvers'
 
+    it 'passes through options', ->
+      spy = @sandbox.spy(Object, 'defineProperty')
+      get options: reader = ->
+      expect(spy).to.have.been.calledWith(
+        dummy, 'options', get: reader, enumerable: true
+      )
+
   describe '.writer', ->
     dummy = {}
-    set = attr.writer(dummy)
-
-    it 'returns a writer factory for given object', ->
-      expect(set).to.be.callable
+    set = attr.writer(dummy, enumerable: true)
 
     it 'creates a setter through factory', ->
       set address: (address) ->
@@ -26,6 +27,13 @@ describe 'attr', ->
       dummy.address = 'localhost:1337'
       expect(dummy.host).to.equal 'localhost'
       expect(dummy.port).to.equal '1337'
+
+    it 'passes through options', ->
+      spy = @sandbox.spy(Object, 'defineProperty')
+      set options: reader = ->
+      expect(spy).to.have.been.calledWith(
+        dummy, 'options', set: reader, enumerable: true
+      )
 
   describe '.readers', ->
     it 'returns reader factories for given objects', ->

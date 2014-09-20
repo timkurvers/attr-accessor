@@ -1,15 +1,17 @@
 module.exports = {
 
-  reader: (object) ->
+  reader: (object, options = {}) ->
     (properties) ->
       for name, getter of properties
-        Object.defineProperty(object, name, get: getter, enumerable: true)
+        options.get = getter
+        Object.defineProperty(object, name, options)
       undefined
 
-  writer: (object) ->
+  writer: (object, options = {}) ->
     (properties) ->
       for name, setter of properties
-        Object.defineProperty(object, name, set: setter, enumerable: true)
+        options.set = setter
+        Object.defineProperty(object, name, options)
       undefined
 
   readers: (objects...) ->

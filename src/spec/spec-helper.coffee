@@ -8,3 +8,9 @@ module.exports = {
   expect: chai.expect,
   sinon:  sinon
 }
+
+beforeEach ->
+  @sandbox = sinon.sandbox.create()
+
+afterEach ->
+  @sandbox.restore()

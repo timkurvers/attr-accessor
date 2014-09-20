@@ -6,11 +6,10 @@ describe('attr', function() {
   describe('.reader', function() {
     var dummy, get;
     dummy = {};
-    get = attr.reader(dummy);
-    it('returns a reader factory for given object', function() {
-      return expect(get).to.be.callable;
+    get = attr.reader(dummy, {
+      enumerable: true
     });
-    return it('creates a getter through factory', function() {
+    it('creates a getter through factory', function() {
       get({
         name: function() {
           return 'Tim Kurvers';
@@ -18,15 +17,25 @@ describe('attr', function() {
       });
       return expect(dummy.name).to.equal('Tim Kurvers');
     });
+    return it('passes through options', function() {
+      var reader, spy;
+      spy = this.sandbox.spy(Object, 'defineProperty');
+      get({
+        options: reader = function() {}
+      });
+      return expect(spy).to.have.been.calledWith(dummy, 'options', {
+        get: reader,
+        enumerable: true
+      });
+    });
   });
   describe('.writer', function() {
     var dummy, set;
     dummy = {};
-    set = attr.writer(dummy);
-    it('returns a writer factory for given object', function() {
-      return expect(set).to.be.callable;
+    set = attr.writer(dummy, {
+      enumerable: true
     });
-    return it('creates a setter through factory', function() {
+    it('creates a setter through factory', function() {
       set({
         address: function(address) {
           var _ref1;
@@ -36,6 +45,17 @@ describe('attr', function() {
       dummy.address = 'localhost:1337';
       expect(dummy.host).to.equal('localhost');
       return expect(dummy.port).to.equal('1337');
+    });
+    return it('passes through options', function() {
+      var reader, spy;
+      spy = this.sandbox.spy(Object, 'defineProperty');
+      set({
+        options: reader = function() {}
+      });
+      return expect(spy).to.have.been.calledWith(dummy, 'options', {
+        set: reader,
+        enumerable: true
+      });
     });
   });
   describe('.readers', function() {

@@ -13,3 +13,11 @@ module.exports = {
   expect: chai.expect,
   sinon: sinon
 };
+
+beforeEach(function() {
+  return this.sandbox = sinon.sandbox.create();
+});
+
+afterEach(function() {
+  return this.sandbox.restore();
+});
