@@ -1,4 +1,8 @@
-clone = require('clone')
+clone = (object) ->
+  cloned = {}
+  for own key, value of object
+    cloned[key] = value
+  cloned
 
 module.exports = {
 
