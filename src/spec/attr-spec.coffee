@@ -2,9 +2,6 @@
 
 describe 'attr', ->
 
-  describe '.accessor', ->
-    it 'returns a reader and writer factory for given object'
-
   describe '.reader', ->
     dummy = {}
     get = attr.reader(dummy)

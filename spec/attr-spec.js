@@ -3,9 +3,6 @@ var attr, expect, sinon, _ref;
 _ref = require('./spec-helper'), attr = _ref.attr, expect = _ref.expect, sinon = _ref.sinon;
 
 describe('attr', function() {
-  describe('.accessor', function() {
-    return it('returns a reader and writer factory for given object');
-  });
   describe('.reader', function() {
     var dummy, get;
     dummy = {};
