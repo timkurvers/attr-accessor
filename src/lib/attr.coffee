@@ -24,7 +24,7 @@ module.exports = {
 
   accessor: (object, options = {}) ->
     ioptions = clone(options)
-    ioptions.enumerable ||= true
+    ioptions.enumerable ?= true
     [
       @reader(object::, ioptions),
       @writer(object::, ioptions),
