@@ -25,13 +25,14 @@ module.exports = {
       undefined
 
   accessor: (object, options = {}) ->
+    [
+      @reader(object, options),
+      @writer(object, options)
+    ]
+
+  accessors: (object, options = {}) ->
     ioptions = clone(options)
     ioptions.enumerable ?= true
-    [
-      @reader(object::, ioptions),
-      @writer(object::, ioptions),
-      @reader(object,   options),
-      @writer(object,   options)
-    ]
+    @accessor(object::, ioptions).concat @accessor(object, options)
 
 }

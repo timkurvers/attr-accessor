@@ -60,7 +60,19 @@ describe('attr', function() {
       });
     });
   });
-  return describe('.accessor', function() {
+  describe('.accessor', function() {
+    var dummy;
+    dummy = {};
+    return it('returns getter and setter factories', function() {
+      var get, set, _ref1;
+      this.sandbox.stub(attr, 'reader').withArgs(dummy).returns(0);
+      this.sandbox.stub(attr, 'writer').withArgs(dummy).returns(1);
+      _ref1 = attr.accessor(dummy), get = _ref1[0], set = _ref1[1];
+      expect(get).to.equal(0);
+      return expect(set).to.equal(1);
+    });
+  });
+  return describe('.accessors', function() {
     var Dummy;
     Dummy = (function() {
       function Dummy() {}
@@ -68,25 +80,25 @@ describe('attr', function() {
       return Dummy;
 
     })();
-    it('exposes an enumerable prototype getter and setter', function() {
+    before(function() {
+      var accessor;
+      accessor = this.sandbox.stub(attr, 'accessor');
+      accessor.withArgs(Dummy.prototype, {
+        enumerable: true
+      }).returns([0, 1]);
+      return accessor.withArgs(Dummy).returns([2, 3]);
+    });
+    it('returns enumerable prototype getter and setter factories', function() {
       var get, set, _ref1;
-      this.sandbox.stub(attr, 'reader').withArgs(Dummy.prototype, {
-        enumerable: true
-      }).returns(0);
-      this.sandbox.stub(attr, 'writer').withArgs(Dummy.prototype, {
-        enumerable: true
-      }).returns(1);
-      _ref1 = attr.accessor(Dummy), get = _ref1[0], set = _ref1[1];
+      _ref1 = attr.accessors(Dummy), get = _ref1[0], set = _ref1[1];
       expect(get).to.equal(0);
       return expect(set).to.equal(1);
     });
-    return it('exposes a static getter and setter', function() {
-      var _, _ref1;
-      this.sandbox.stub(attr, 'reader').withArgs(Dummy).returns(0);
-      this.sandbox.stub(attr, 'writer').withArgs(Dummy).returns(1);
-      _ref1 = attr.accessor(Dummy), _ = _ref1[0], _ = _ref1[1], this.get = _ref1[2], this.set = _ref1[3];
-      expect(this.get).to.equal(0);
-      return expect(this.set).to.equal(1);
+    return it('returns static getter and setter factories', function() {
+      var get, set, _, _ref1;
+      _ref1 = attr.accessors(Dummy), _ = _ref1[0], _ = _ref1[1], get = _ref1[2], set = _ref1[3];
+      expect(get).to.equal(2);
+      return expect(set).to.equal(3);
     });
   });
 });

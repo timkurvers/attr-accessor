@@ -36,22 +36,29 @@ describe 'attr', ->
       )
 
   describe '.accessor', ->
-    class Dummy
+    dummy = {}
 
-    it 'exposes an enumerable prototype getter and setter', ->
-      @sandbox.stub(attr, 'reader').withArgs(
-        Dummy::, enumerable: true
-      ).returns 0
-      @sandbox.stub(attr, 'writer').withArgs(
-        Dummy::, enumerable: true
-      ).returns 1
-      [get, set] = attr.accessor(Dummy)
+    it 'returns getter and setter factories', ->
+      @sandbox.stub(attr, 'reader').withArgs(dummy).returns 0
+      @sandbox.stub(attr, 'writer').withArgs(dummy).returns 1
+      [get, set] = attr.accessor(dummy)
       expect(get).to.equal 0
       expect(set).to.equal 1
 
-    it 'exposes a static getter and setter', ->
-      @sandbox.stub(attr, 'reader').withArgs(Dummy).returns 0
-      @sandbox.stub(attr, 'writer').withArgs(Dummy).returns 1
-      [_, _, @get, @set] = attr.accessor(Dummy)
-      expect(@get).to.equal 0
-      expect(@set).to.equal 1
+  describe '.accessors', ->
+    class Dummy
+
+    before ->
+      accessor = @sandbox.stub(attr, 'accessor')
+      accessor.withArgs(Dummy::, enumerable: true).returns [0, 1]
+      accessor.withArgs(Dummy).returns [2, 3]
+
+    it 'returns enumerable prototype getter and setter factories', ->
+      [get, set] = attr.accessors(Dummy)
+      expect(get).to.equal 0
+      expect(set).to.equal 1
+
+    it 'returns static getter and setter factories', ->
+      [_, _, get, set] = attr.accessors(Dummy)
+      expect(get).to.equal 2
+      expect(set).to.equal 3
