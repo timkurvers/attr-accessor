@@ -6,7 +6,7 @@ describe 'attr', ->
     dummy = {}
     get = attr.reader(dummy, enumerable: true)
 
-    it 'creates a getter through factory', ->
+    it 'returns a getter factory', ->
       get name: -> 'Tim Kurvers'
       expect(dummy.name).to.equal 'Tim Kurvers'
 
@@ -21,7 +21,7 @@ describe 'attr', ->
     dummy = {}
     set = attr.writer(dummy, enumerable: true)
 
-    it 'creates a setter through factory', ->
+    it 'returns a setter factory', ->
       set address: (address) ->
         [@host, @port] = address.split(':')
       dummy.address = 'localhost:1337'

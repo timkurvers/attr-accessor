@@ -9,7 +9,7 @@ describe('attr', function() {
     get = attr.reader(dummy, {
       enumerable: true
     });
-    it('creates a getter through factory', function() {
+    it('returns a getter factory', function() {
       get({
         name: function() {
           return 'Tim Kurvers';
@@ -36,7 +36,7 @@ describe('attr', function() {
     set = attr.writer(dummy, {
       enumerable: true
     });
-    it('creates a setter through factory', function() {
+    it('returns a setter factory', function() {
       set({
         address: function(address) {
           var _ref1;
