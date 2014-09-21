@@ -51,6 +51,12 @@ module.exports = {
     };
   },
   accessor: function(object, options) {
+    if (options == null) {
+      options = {};
+    }
+    return [this.reader(object, options), this.writer(object, options)];
+  },
+  accessors: function(object, options) {
     var ioptions;
     if (options == null) {
       options = {};
@@ -59,7 +65,7 @@ module.exports = {
     if (ioptions.enumerable == null) {
       ioptions.enumerable = true;
     }
-    return [this.reader(object.prototype, ioptions), this.writer(object.prototype, ioptions), this.reader(object, options), this.writer(object, options)];
+    return this.accessor(object.prototype, ioptions).concat(this.accessor(object, options));
   }
 };
 
