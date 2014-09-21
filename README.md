@@ -13,17 +13,29 @@ Licensed under the **MIT** license, see LICENSE for more information.
 ## Usage
 
 Pass in an object to `attr.reader` or `attr.writer` to obtain a getter or setter
-factory respectively.
+factory respectively:
 
-CoffeeScript has had no elegant way of defining getter/setters, until now. Use `attr.accessor` in combination with CoffeeScript's destructuring syntax to obtain an ordered set of factories:
+```
+get = attr.reader(object)
+set = attr.writer(object)
+```
 
-`[get, set, @get, @set] = attr.accessor(object)`
+CoffeeScript has had no elegant way of defining getter/setters, until now. Use its
+destructuring syntax in combination with `attr.accessor` to obtain both factories:
 
-The first two factories are prototypal/instance-bound while the last two are static:
+`[get, set] = attr.accessor(object)`
+
+Use `attr.accessors` when dealing with classes to obtain two prototypal /
+instance-bound factories as well as two static factories:
+
+`[get, set, @get, @set] = attr.accessors(object)`
+
+
+### Example
 
 ```coffeescript
 class Person
-  [get, _, @get] = attr.accessor(@)
+  [get, set, @get, @set] = attr.accessors(@)
 
   group = []
 
