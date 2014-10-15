@@ -4,7 +4,7 @@ clone = (object) ->
     cloned[key] = value
   cloned
 
-module.exports = {
+module.exports =
 
   reader: (object, options = {}) ->
     options = clone(options)
@@ -34,5 +34,3 @@ module.exports = {
     ioptions = clone(options)
     ioptions.enumerable ?= true
     @accessor(object::, ioptions).concat @accessor(object, options)
-
-}
