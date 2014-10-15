@@ -2,6 +2,7 @@ browserify = require('gulp-browserify')
 clean      = require('gulp-rimraf')
 coffee     = require('gulp-coffee')
 gulp       = require('gulp')
+header     = require('./header')
 mocha      = require('gulp-mocha')
 plumber    = require('gulp-plumber')
 pkg        = require('./package.json')
@@ -29,8 +30,10 @@ gulp.task 'release', gulp.series 'clean', 'build', ->
   gulp.src 'lib/attr.js'
       .pipe browserify(standalone: 'attr')
       .pipe rename("#{pkg.name}.js")
+      .pipe header(pkg)
       .pipe gulp.dest('dist')
       .pipe uglify()
+      .pipe header(pkg)
       .pipe rename("#{pkg.name}.min.js")
       .pipe gulp.dest('dist')
 
