@@ -9,8 +9,10 @@ rename     = require('gulp-rename')
 uglify     = require('gulp-uglify')
 
 gulp.task 'clean', ->
-  gulp.src(['lib/**/*', 'dist/**/*'])
-      .pipe(clean())
+  gulp.src([
+    'lib/**/*',
+    'dist/**/*'
+  ]).pipe(clean())
 
 gulp.task 'build', ->
   gulp.src('src/**/*.coffee')
@@ -32,11 +34,11 @@ gulp.task 'release', gulp.series 'clean', 'build', ->
       .pipe(rename("#{pkg.name}.min.js"))
       .pipe(gulp.dest('dist'))
 
-gulp.task 'flow', gulp.series('build', 'spec')
-
 gulp.task 'watch', ->
-  gulp.watch [
-    'src/**/*.coffee'
-  ], 'flow'
+  gulp.watch 'src/**/*.coffee', gulp.series(
+    'build', 'spec'
+  )
 
-gulp.task 'default', gulp.series('flow', 'watch')
+gulp.task 'default', gulp.series(
+  'build', 'spec', 'watch'
+)
