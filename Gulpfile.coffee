@@ -11,8 +11,9 @@ uglify     = require('gulp-uglify')
 
 gulp.task 'clean', ->
   gulp.src([
+    'dist/**/*',
     'lib/**/*',
-    'dist/**/*'
+    'spec/**/*'
   ]).pipe clean()
 
 gulp.task 'build', ->
