@@ -25,7 +25,7 @@ gulp.task 'build', ->
 gulp.task 'spec', ->
   gulp.src 'spec/**/*.js', read: false
       .pipe plumber()
-      .pipe mocha()
+      .pipe mocha(bail: true)
 
 gulp.task 'release', gulp.series 'clean', 'build', ->
   gulp.src 'lib/attr.js'
