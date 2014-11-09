@@ -35,12 +35,12 @@ instance-bound factories as well as two static factories:
 
 ```coffeescript
 class Person
-  [get, set, @get, @set] = attr.accessors(@)
+  [get, set, @get, @set] = attr.accessors(this)
 
   group = []
 
   constructor: (@firstName, @lastName) ->
-    group.push @
+    group.push this
 
   get name: ->
     "#{@firstName} #{@lastName}"
