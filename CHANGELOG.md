@@ -1,6 +1,5 @@
 # Changelog
 
-
 ### v0.2.1 - November 9, 2014
 
 - Browser distribution now includes a header.
