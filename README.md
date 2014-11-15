@@ -10,6 +10,20 @@ Convenience factories for creating getter/setters.
 Licensed under the **MIT** license, see LICENSE for more information.
 
 
+## Installation
+
+Attr Accessor is available via [npm](https://www.npmjs.org/package/attr-accessor):
+
+```shell
+npm install attr-accessor
+```
+
+Or for usage in the browser:
+
+- `dist/attr-accessor.js`
+- `dist/attr-accessor.min.js`
+
+
 ## Usage
 
 Pass in an object to `attr.reader` or `attr.writer` to obtain a getter or setter
