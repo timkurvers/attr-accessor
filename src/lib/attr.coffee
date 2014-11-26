@@ -4,25 +4,22 @@ clone = (object) ->
     cloned[key] = value
   cloned
 
+factory = (object, options, method) ->
+  options = clone(options)
+  options.configurable ?= true
+  (properties) ->
+    for name, accessor of properties
+      options[method] = accessor
+      Object.defineProperty(object, name, options)
+    undefined
+
 module.exports =
 
   reader: (object, options = {}) ->
-    options = clone(options)
-    options.configurable ?= true
-    (properties) ->
-      for name, getter of properties
-        options.get = getter
-        Object.defineProperty(object, name, options)
-      undefined
+    factory object, options, 'get'
 
   writer: (object, options = {}) ->
-    options = clone(options)
-    options.configurable ?= true
-    (properties) ->
-      for name, setter of properties
-        options.set = setter
-        Object.defineProperty(object, name, options)
-      undefined
+    factory object, options, 'set'
 
   accessor: (object, options = {}) ->
     [
