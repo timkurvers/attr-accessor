@@ -37,16 +37,5 @@
     "mocha": "^1.21.4",
     "sinon": "^1.10.3",
     "sinon-chai": "^2.5.0"
-  },
-  "testling": {
-    "files": "spec/*.js",
-    "harness": "mocha-bdd",
-    "browsers": [
-      "chrome/22..latest",
-      "firefox/16..latest",
-      "ie/9..latest",
-      "opera/11.0..latest",
-      "safari/5.0.5..latest"
-    ]
   }
 }
