@@ -29,7 +29,7 @@ Or for usage in the browser:
 Pass in an object to `attr.reader` or `attr.writer` to obtain a getter or setter
 factory respectively:
 
-```
+```javascript
 get = attr.reader(object)
 set = attr.writer(object)
 ```
@@ -37,12 +37,16 @@ set = attr.writer(object)
 CoffeeScript has had no elegant way of defining getter/setters, until now. Use its
 destructuring syntax in combination with `attr.accessor` to obtain both factories:
 
-`[get, set] = attr.accessor(object)`
+```javascript
+[get, set] = attr.accessor(object)
+```
 
 Use `attr.accessors` when dealing with classes to obtain two prototypal /
 instance-bound factories as well as two static factories:
 
-`[get, set, @get, @set] = attr.accessors(object)`
+```javascript
+[get, set, @get, @set] = attr.accessors(object)
+```
 
 
 ### Example
