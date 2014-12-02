@@ -69,11 +69,6 @@ Person.count # 1
 ```
 
 
-## Browser Support
-
-[![Testling](https://ci.testling.com/timkurvers/attr-accessor.png)](https://ci.testling.com/timkurvers/attr-accessor)
-
-
 ## Development & Contribution
 
 When contributing, please:
