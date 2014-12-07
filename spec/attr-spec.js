@@ -48,13 +48,13 @@ describe('attr', function() {
       return expect(dummy.port).to.equal('1337');
     });
     return it('passes through options', function() {
-      var reader, spy;
+      var spy, writer;
       spy = this.sandbox.spy(Object, 'defineProperty');
       set({
-        options: reader = function() {}
+        options: writer = function() {}
       });
       return expect(spy).to.have.been.calledWith(dummy, 'options', {
-        set: reader,
+        set: writer,
         configurable: true,
         enumerable: true
       });

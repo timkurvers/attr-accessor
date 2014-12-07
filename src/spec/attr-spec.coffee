@@ -30,9 +30,9 @@ describe 'attr', ->
 
     it 'passes through options', ->
       spy = @sandbox.spy(Object, 'defineProperty')
-      set options: reader = ->
+      set options: writer = ->
       expect(spy).to.have.been.calledWith(
-        dummy, 'options', set: reader, configurable: true, enumerable: true
+        dummy, 'options', set: writer, configurable: true, enumerable: true
       )
 
   describe '.accessor', ->
