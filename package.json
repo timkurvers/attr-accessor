@@ -9,7 +9,7 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "test": "mocha spec"
+    "test": "istanbul test --include-all-sources ./node_modules/mocha/bin/_mocha -- spec"
   },
   "repository": "timkurvers/attr-accessor",
   "author": "Tim Kurvers <tim@moonsphere.net>",
@@ -34,6 +34,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-rimraf": "^0.1.0",
     "gulp-uglify": "^1.0.0",
+    "istanbul": "^0.3.5",
     "mocha": "^1.21.4",
     "sinon": "^1.10.3",
     "sinon-chai": "^2.5.0"
