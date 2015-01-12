@@ -9,7 +9,7 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "test": "istanbul test --include-all-sources ./node_modules/mocha/bin/_mocha -- spec"
+    "test": "istanbul test ./node_modules/mocha/bin/_mocha -- spec"
   },
   "repository": "timkurvers/attr-accessor",
   "author": "Tim Kurvers <tim@moonsphere.net>",
