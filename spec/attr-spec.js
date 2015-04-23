@@ -1,6 +1,6 @@
-var attr, expect, sinon, _ref;
+var attr, expect, ref, sinon;
 
-_ref = require('./spec-helper'), attr = _ref.attr, expect = _ref.expect, sinon = _ref.sinon;
+ref = require('./spec-helper'), attr = ref.attr, expect = ref.expect, sinon = ref.sinon;
 
 describe('attr', function() {
   describe('.reader', function() {
@@ -39,8 +39,8 @@ describe('attr', function() {
     it('returns a setter factory', function() {
       set({
         address: function(address) {
-          var _ref1;
-          return _ref1 = address.split(':'), this.host = _ref1[0], this.port = _ref1[1], _ref1;
+          var ref1;
+          return ref1 = address.split(':'), this.host = ref1[0], this.port = ref1[1], ref1;
         }
       });
       dummy.address = 'localhost:1337';
@@ -64,10 +64,10 @@ describe('attr', function() {
     var dummy;
     dummy = {};
     return it('returns getter and setter factories', function() {
-      var get, set, _ref1;
+      var get, ref1, set;
       this.sandbox.stub(attr, 'reader').withArgs(dummy).returns(0);
       this.sandbox.stub(attr, 'writer').withArgs(dummy).returns(1);
-      _ref1 = attr.accessor(dummy), get = _ref1[0], set = _ref1[1];
+      ref1 = attr.accessor(dummy), get = ref1[0], set = ref1[1];
       expect(get).to.equal(0);
       return expect(set).to.equal(1);
     });
@@ -89,14 +89,14 @@ describe('attr', function() {
       return accessor.withArgs(Dummy).returns([2, 3]);
     });
     it('returns enumerable prototype getter and setter factories', function() {
-      var get, set, _ref1;
-      _ref1 = attr.accessors(Dummy), get = _ref1[0], set = _ref1[1];
+      var get, ref1, set;
+      ref1 = attr.accessors(Dummy), get = ref1[0], set = ref1[1];
       expect(get).to.equal(0);
       return expect(set).to.equal(1);
     });
     return it('returns static getter and setter factories', function() {
-      var get, set, _, _ref1;
-      _ref1 = attr.accessors(Dummy), _ = _ref1[0], _ = _ref1[1], get = _ref1[2], set = _ref1[3];
+      var _, get, ref1, set;
+      ref1 = attr.accessors(Dummy), _ = ref1[0], _ = ref1[1], get = ref1[2], set = ref1[3];
       expect(get).to.equal(2);
       return expect(set).to.equal(3);
     });
