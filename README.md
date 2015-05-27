@@ -35,8 +35,12 @@ get = attr.reader(object)
 set = attr.writer(object)
 ```
 
-CoffeeScript has had no elegant way of defining getter/setters, until now. Use its
-destructuring syntax in combination with `attr.accessor` to obtain both factories:
+ES2015 (ES6) [introduced classes](http://babeljs.io/docs/learn-es2015/#classes)
+and has support for getter/setters.
+
+CoffeeScript, on the other hand, has had no elegant way of defining getter/setters,
+until now. Use its destructuring syntax in combination with `attr.accessor` to
+obtain both factories:
 
 ```javascript
 [get, set] = attr.accessor(object)
