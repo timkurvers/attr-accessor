@@ -25,7 +25,6 @@ var factory = function factory(object, options, method) {
       options[method] = accessor;
       Object.defineProperty(object, _name, options);
     }
-    undefined;
   };
 };
 

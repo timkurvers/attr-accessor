@@ -13,7 +13,6 @@ const factory = function(object, options, method) {
       options[method] = accessor
       Object.defineProperty(object, name, options)
     }
-    undefined
   }
 }
 
