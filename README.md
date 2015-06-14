@@ -80,9 +80,30 @@ Person.count # 1
 
 ## Development & Contribution
 
+Attr Accessor is written in [ES2015](https://babeljs.io/docs/learn-es2015/), compiled by [Babel](https://babeljs.io/), developed with [Gulp](http://gulpjs.com/) and tested through [Mocha](http://mochajs.org/).
+
+Getting this toolchain up and running, is easy and straight-forward:
+
+1. Get the code:
+
+   ```
+   git clone git://github.com/timkurvers/attr-accessor.git
+   ```
+
+2. Download and install [Node.js](http://nodejs.org/#download) (includes `npm`) for your platform.
+
+3. Install dependencies:
+
+   ```shell
+   npm install
+   ```
+
+4. Run `gulp` which will automatically build and test the project when source files change.
+
+
 When contributing, please:
 
 * Fork the repository
 * Accompany each logical unit of operation with at least one test
 * Open a pull request
-* Do *not* include any distribution files
+* Do *not* include any distribution files (such as `dist/attr-accessor.js`)
