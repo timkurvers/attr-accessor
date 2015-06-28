@@ -1,5 +1,5 @@
 /**
- * attr-accessor v0.2.1
+ * attr-accessor v0.2.2
  * Copyright (c) 2014-2015 Tim Kurvers <tim@moonsphere.net>
  *
  * Convenience factories for creating getter/setters.
