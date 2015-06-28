@@ -74,7 +74,7 @@ describe('attr', function() {
     })
 
     it('returns static getter and setter factories', function() {
-      const [_, _, get, set] = attr.accessors(Dummy)
+      const [_, __, get, set] = attr.accessors(Dummy)
       expect(get).to.equal(2)
       expect(set).to.equal(3)
     })

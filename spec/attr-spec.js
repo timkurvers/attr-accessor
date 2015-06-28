@@ -105,7 +105,7 @@ describe('attr', function () {
       var _attr$accessors32 = _slicedToArray(_attr$accessors3, 4);
 
       var _ = _attr$accessors32[0];
-      var _ = _attr$accessors32[1];
+      var __ = _attr$accessors32[1];
       var get = _attr$accessors32[2];
       var set = _attr$accessors32[3];
 
