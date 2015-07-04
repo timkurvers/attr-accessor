@@ -9,7 +9,8 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "test": "gulp rebuild && istanbul test ./node_modules/mocha/bin/_mocha -- spec"
+    "pretest": "gulp rebuild",
+    "test": "istanbul test ./node_modules/mocha/bin/_mocha -- spec"
   },
   "repository": "timkurvers/attr-accessor",
   "author": "Tim Kurvers <tim@moonsphere.net>",
