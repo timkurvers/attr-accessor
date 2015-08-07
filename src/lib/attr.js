@@ -4,12 +4,12 @@ const clone = function(object) {
 
 const factory = function(object, options, method) {
   options = clone(options);
-  if(options.configurable === undefined) {
+  if (options.configurable === undefined) {
     options.configurable = true;
   }
   return function(properties) {
-    for(let name in properties) {
-      let accessor = properties[name];
+    for (const name in properties) {
+      const accessor = properties[name];
       options[method] = accessor;
       Object.defineProperty(object, name, options);
     }
@@ -35,7 +35,7 @@ module.exports = {
 
   accessors: function(object, options = {}) {
     const ioptions = clone(options);
-    if(ioptions.enumerable === undefined) {
+    if (ioptions.enumerable === undefined) {
       ioptions.enumerable = true;
     }
     return this.accessor(object.prototype, ioptions).concat(
