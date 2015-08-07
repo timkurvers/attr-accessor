@@ -1,4 +1,4 @@
-const {attr, expect, sinon} = require('./spec-helper');
+const {attr, expect} = require('./spec-helper');
 
 describe('attr', function() {
 
