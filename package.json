@@ -10,8 +10,8 @@
   ],
   "scripts": {
     "gulp": "gulp",
-    "pretest": "gulp rebuild",
     "lint": "eslint src *.js",
+    "pretest": "gulp rebuild",
     "release": "gulp release",
     "test": "istanbul test ./node_modules/mocha/bin/_mocha -- spec"
   },
