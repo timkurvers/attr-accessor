@@ -5,9 +5,9 @@ const bridge = require('sinon-chai');
 chai.use(bridge);
 
 module.exports = {
-  attr:   require('../'),
+  attr: require('../'),
   expect: chai.expect,
-  sinon:  sinon
+  sinon: sinon
 };
 
 beforeEach(function() {
