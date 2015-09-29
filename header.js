@@ -1,6 +1,6 @@
-const header = require('gulp-header');
+import header from 'gulp-header';
 
-module.exports = function(pkg) {
+export default function(pkg) {
   return header(`/**
  * ${pkg.name} v${pkg.version}
  * Copyright (c) 2014-2015 ${pkg.author}

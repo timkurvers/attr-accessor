@@ -1,11 +1,12 @@
-const chai   = require('chai');
-const sinon  = require('sinon');
-const bridge = require('sinon-chai');
+import attr from '../';
+import bridge from 'sinon-chai';
+import chai from 'chai';
+import sinon from 'sinon';
 
 chai.use(bridge);
 
-module.exports = {
-  attr: require('../'),
+export default {
+  attr: attr,
   expect: chai.expect,
   sinon: sinon
 };

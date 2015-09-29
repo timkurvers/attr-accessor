@@ -16,7 +16,7 @@ const factory = function(object, options, method) {
   };
 };
 
-module.exports = {
+export default {
 
   reader: function(object, options = {}) {
     return factory(object, options, 'get');

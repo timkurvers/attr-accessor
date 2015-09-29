@@ -1,4 +1,4 @@
-const { attr, expect } = require('./spec-helper');
+import { attr, expect } from './spec-helper';
 
 describe('attr', function() {
 
