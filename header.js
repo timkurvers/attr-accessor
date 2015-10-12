@@ -9,4 +9,4 @@ export default function(pkg) {
  *
  * Licensed under the ${pkg.license} license.
  */\n\n`);
-};
+}
