@@ -82,7 +82,7 @@ Getting this toolchain up and running, is easy and straight-forward:
 
 1. Get the code:
 
-   ```
+   ```shell
    git clone git://github.com/timkurvers/attr-accessor.git
    ```
 
