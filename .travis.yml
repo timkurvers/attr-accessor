@@ -3,9 +3,9 @@ language: node_js
 node_js:
   - '0.10'
   - '0.12'
+  - '4'
+  - '5'
 matrix:
-  allow_failures:
-    - node_js: 'node_js'
   fast_finish: true
 script: npm test --coverage
 after_script: codeclimate < coverage/lcov.info
