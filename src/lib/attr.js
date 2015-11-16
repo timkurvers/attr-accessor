@@ -2,8 +2,8 @@ const clone = function(object) {
   return JSON.parse(JSON.stringify(object));
 };
 
-const factory = function(object, options, method) {
-  options = clone(options);
+const factory = function(object, opts, method) {
+  const options = clone(opts);
   if (options.configurable === undefined) {
     options.configurable = true;
   }
