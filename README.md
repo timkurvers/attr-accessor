@@ -1,7 +1,7 @@
 # Attr Accessor
 
-[![Version](https://img.shields.io/npm/v/attr-accessor.svg?style=flat)](https://www.npmjs.org/package/attr-accessor)
-[![Build Status](https://img.shields.io/travis/timkurvers/attr-accessor.svg?style=flat)](https://travis-ci.org/timkurvers/attr-accessor)
+[![Version](https://img.shields.io/npm/v/attr-accessor.svg)](https://www.npmjs.org/package/attr-accessor)
+[![Build Status](https://img.shields.io/travis/timkurvers/attr-accessor.svg)](https://travis-ci.org/timkurvers/attr-accessor)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/timkurvers/attr-accessor.svg)](https://codeclimate.com/github/timkurvers/attr-accessor)
 [![Test Coverage](https://img.shields.io/codeclimate/coverage/timkurvers/attr-accessor.svg)](https://codeclimate.com/github/timkurvers/attr-accessor)
 [![Known Vulnerabilities](https://snyk.io/test/github/timkurvers/attr-accessor/badge.svg)](https://snyk.io/test/github/timkurvers/attr-accessor)
