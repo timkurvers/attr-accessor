@@ -7,7 +7,7 @@
 
 Convenience factories for creating getter/setters.
 
-Licensed under the **MIT** license, see LICENSE for more information.
+Licensed under the [**MIT** license](LICENSE.md).
 
 ## Installation
 
